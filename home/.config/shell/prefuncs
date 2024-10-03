@@ -1,0 +1,30 @@
+__xo()
+{
+	xdg-open $1 >/dev/null 2>&1 &
+}
+
+__sd()
+{
+	if [ -z "${1+x}" ] || [ -z "${2+x}" ]; then
+        return
+    fi
+    if [ -z "${3+x}" ]; then
+        sd -f wc "$1" "$2" $(fd --type file)
+    else
+        sd -f wc "$1" "$2" $(fd --type file . ${3})
+    fi
+}
+
+__get_alias()
+{
+    cat ~/.customrc.d/aliases.d/*.bash
+}
+
+#__ccov()
+#{
+#    mkdir -p ./lcov
+#    lcov --directory . --capture --output-file app.info
+#    genhtml app.info --output-directory ./lcov
+#    mv app.info ./lcov
+#    cd ./lcov
+#}

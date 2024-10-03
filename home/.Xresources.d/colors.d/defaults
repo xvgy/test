@@ -1,0 +1,38 @@
+!# vi:filetype=xdefaults
+
+! special
+#define FOREGROUND  #eaeeec
+#define BACKGROUND  #14141f
+#define CURSORCOLOR #afbfbf
+
+! black
+#define COLOR0  #263640
+#define COLOR8  #4a697d
+
+! red
+#define COLOR1  #d12f2c
+#define COLOR9  #fa3935
+
+! green
+#define COLOR2  #819400
+#define COLOR10 #a9e480
+
+! yellow
+#define COLOR3  #f19400
+#define COLOR11 #f4cd00
+
+! blue
+#define COLOR4  #2587cc
+#define COLOR12 #2ca2f5
+
+! magenta
+#define COLOR5  #696ebf
+#define COLOR13 #8086e8
+
+! cyan
+#define COLOR6  #289c93
+#define COLOR14 #33c5ba
+
+! white
+#define COLOR7  #bfbaac
+#define COLOR15 #fdf6e3

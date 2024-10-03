@@ -1,0 +1,10 @@
+#!/bin/bash
+
+TABLET_IND=""
+
+if [[ -f ~/.navwc ]]
+then
+    TABLET_IND+="<roam>"
+fi
+
+echo "$TABLET_IND"

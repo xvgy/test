@@ -1,0 +1,47 @@
+snippet met
+	/**
+	 * ${5:description}
+	 * @param ${1:type} ${2}
+	 * @return ${3:type}
+	 */
+	public function ${3:name}()
+	{
+		${6://body}
+	}
+snippet pmet
+	/**
+	 * ${5:description}
+	 * @param ${1:type} ${2}
+	 * @return ${3:type}
+	 */
+	private function ${3:name}()
+	{
+		${6://body}
+	}
+snippet $
+	$this->${1}
+snippet mem
+	/** @var ${1:type|s} $${2:name} ${3:description} */
+	public $$2 = null;
+snippet pmem
+	/** @var ${1:type|s} $${2:name} ${3:description} */
+	private $$2 = null;
+snippet fdoc
+	/**
+	 * ${4:description}
+	 * @param ${1:type} ${2}
+	 * @return ${3:type}
+	 */
+snippet	cdoc
+	/**
+	 * ${1:description}
+	 */
+snippet	vdoc
+	/** @var ${1:type|s} $${2:name} ${3:description} */
+snippet	php?
+	<?php
+	?>
+snippet mdoc
+	/** @var ${1:type|s} $${2:name} ${3:description} */
+snippet //*
+	/** ${1} */

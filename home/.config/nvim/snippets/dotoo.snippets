@@ -1,0 +1,13 @@
+snippet meet
+	* MEETING ${1:desc} (END ${2:hour}h${3:min})
+	DEADLINE: <`strftime(g:dotoo#time#datetime_format)`>
+
+snippet todo
+	* TODO ${1:desc}
+	DEADLINE: <`strftime(g:dotoo#time#datetime_format)`>
+
+snippet :time:
+	<`strftime(g:dotoo#time#datetime_format)`>
+
+snippet :date:
+	<`strftime(g:dotoo#time#date_day_format)`>

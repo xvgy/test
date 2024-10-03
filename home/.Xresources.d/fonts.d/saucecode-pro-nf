@@ -1,0 +1,6 @@
+!# vi:filetype=xdefaults
+
+*.font:             xft:SauceCodePro Nerd Font Mono:style=Regular:size=14
+*.boldFont:         xft:SauceCodePro Nerd Font Mono:style=Bold:size=14
+*.italicFont:       xft:SauceCodePro Nerd Font Mono:style=Italic:size=14
+*.boldItalicFont:   xft:SauceCodePro Nerd Font Mono:style=Bold Italic:size=14

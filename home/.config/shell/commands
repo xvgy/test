@@ -1,0 +1,84 @@
+function    pstask()
+{
+    ps aux | grep "$1"
+}
+
+function    cx()
+{
+    for arg in $@; do
+        chmod u+x $arg
+        echo "$arg is ready to cx!"
+    done
+}
+
+function    test_font()
+{
+    echo -e "(Normal) \033[0m$@\033[0m"
+    echo -e "(Bold) \033[1m$@\033[0m"
+    echo -e "(Dim) \033[2m$@\033[0m"
+    echo -e "(Italic) \033[3m$@\033[0m"
+    echo -e "(Underline) \033[4m$@\033[0m"
+    echo -e "(Blinking) \033[5m$@\033[0m"
+    echo -e "(Reverse) \033[7m$@\033[0m"
+    echo -e "(Invisible) \033[8m$@\033[0m"
+}
+
+function    check_font()
+{
+    fc-list | grep "$1" | vim -
+}
+
+function    count_files()
+{
+    if [ ! -e "${1}" ]
+    then
+        echo "USAGE: count_files path"
+        return
+    fi
+
+    local -i files=$(find "$(readlink -f -- ${1})" -type f | wc -l)
+    echo $files
+}
+
+function    epochfromnow()
+{
+    if [ "$#" -lt 1 ]; then
+        return 1
+    fi
+    echo $(($(date -d "$*" +'%s') - $(date -d 'now' +'%s')))
+}
+
+function    sanitize()
+{
+    sed s:\':\\\\\':g <<< "$1"
+}
+
+function    safecurl()
+{
+    curl --tlsv1.2 --proto =https "$1" --location --remote-name-all --remote-header-name -o "$(basename $1)"
+}
+
+function rofi_aliases()
+{
+    __get_alias | grep alias | awk -F'[ = ]' '{print $2}'
+}
+
+function noshada()
+{
+    nvim --noplugin -i NONE -u ~/.config/vimmin/init.vim $@
+}
+
+function vmmount() #TODO: Improve it
+{
+    if ! [ -d /tmp/$1 ]; then
+        mkdir /tmp/$1
+    fi
+    vmhgfs-fuse .host:/$1 /tmp/$1 -o subtype=vmhgfs-fuse
+    echo "VMP Shared folder mounted."
+}
+
+function ssh_git() #TODO: Improve it
+{
+    eval $(ssh-agent)
+    ssh-add ~/.ssh/${1}
+}

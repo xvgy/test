@@ -1,0 +1,31 @@
+alias xup="xrdb -I$HOME ~/.Xresources"
+alias chrome='chromium-browser'
+alias gnvim='nvim-qt 2>&1 >/dev/null &'
+alias e='nvim'
+
+alias dls='xo ~/Downloads'
+alias snaps="xo ~/snaps"
+
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias ~='cd ~'
+
+alias xprop='xprop |less'
+alias xo='__xo'
+
+alias lsd="__sd"
+
+alias gdbt='gdb -tui'
+alias supervalgrind='valgrind -s --leak-check=full --show-reachable=yes'
+alias suv='supervalgrind'
+alias ccov='__ccov'
+alias gdiff="git diff --no-index"
+
+alias ranger='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
+alias r='ranger'
+alias g='git'
+alias cls='clear'
+
+alias nos='noshada'
+#complete -o bashdefault -o default -o nospace -F __git_wrap__git_main g

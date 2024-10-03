@@ -1,0 +1,46 @@
+!# vi:filetype=xdefaults
+
+! Issue with rxvt atm
+URxvt.depth:            32
+! URxvt.foreground:   BACKGROUND
+URxvt.foreground:   rgba:1220/1220/1831/A444
+! URxvt.foreground:   rgba:1020/1020/1031/8000
+URxvt.background:   FOREGROUND
+
+URxvt.letterSpace:      1
+URxvt.cursorBlink:      1
+URxvt.cursorUnderline:  false
+
+URxvt.geometry:         92x32
+URxvt.internalBorder:   32
+
+URxvt.scrollBar:        false
+URxvt.scrollBar_right:  false
+Xcursor.size:           32
+URxvt.iso14755:         false
+URxvt.reverseVideo:     true
+
+!URxvt*inheritPixmap:   true
+!URxvt.perl-lib:         /run/current-system/sw/lib/urxvt/perl
+URxvt.perl-lib:         /tmp/lib/urxvt/perl
+URxvt.saveline:        4095
+
+
+! Extensions
+URxvt.perl-ext-common:          default,keyboard-select,font-size
+!URxvt.matcher.button:          1
+!URxvt.keysym.F11:              perl:fullscreen:switch
+URxvt.keyboard-select.clipboard:true
+URxvt.keysym.C-M-o:             perl:keyboard-select:activate
+
+!Font-size
+!URxvt.keysym.C-+:      font-size:increase
+!URxvt.keysym.C--:      font-size:decrease
+URxvt.keysym.C-M-Up:    font-size:incglobal
+URxvt.keysym.C-M-Down:  font-size:decglobal
+URxvt.keysym.C-0:       font-size:reset
+URxvt.keysym.C-M-slash: font-size:show
+
+! Scrollback
+!URxvt.searchable-scrollback:   false
+URxvt.scrollstyle:              plain

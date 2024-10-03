@@ -1,0 +1,65 @@
+"=======================================================
+"===                 VIMRC MAIN FILE                 ===
+"=======================================================
+
+" File encoding
+set encoding=utf-8
+set fileencodings=utf-8,ucs-bom,latin1
+set ff=unix
+
+" General file sep for shell commands
+let g:sep = has("win32") ? "\\" : "/"
+
+" Windows only: setting vim config filepath
+if has('win32') || has('win64')
+    set runtimepath=$HOME,$HOME/.vim,$VIMRUNTIME,$HOME/.vim/after
+endif
+
+" Disable safe writing
+set backupcopy=yes
+
+" Autoreload file
+set autoread
+set hidden
+
+" Init man files
+runtime! ftplugin/man.vim
+
+" Set clipboard type
+if has('win32') || has('win64')
+    set clipboard=unnamed
+else
+    set clipboard+=unnamedplus
+endif
+
+" Setting Backup, Swap and Undo directories
+function! s:SetSessionDirs()
+    if has("win32")
+        set directory=$HOME\.vim\swap,$TEMP
+        set backupdir=$HOME\.vim\backup,$TEMP
+        set undodir=$HOME\.vim\undo,$TEMP
+    else
+        set directory=~/.cache/nvim/swap,/tmp
+        set backupdir=~/.cache/nvim/backup,/tmp
+        set undodir=~/.cache/nvim/undo,/tmp
+    endif
+endfunc
+call s:SetSessionDirs()
+command! SetSessionDirs call s:SetSessionDirs()
+
+" Set persistent undo
+set undofile
+
+" Auto cd to directory of current file, except for gpged files
+autocmd WinEnter,BufEnter * if expand("%:e") != 'gpg' | silent! lcd %:p:h
+autocmd BufReadPre,FileReadPre *.gpg setl noswapfile noundofile nobackup viminfo=
+
+" Sourcing other vim configuration files
+for rcfile in split(globpath("~/.config/nvim/rc", "*.vim"), '\n') 
+    execute('source '.rcfile)
+endfor
+
+" Sourcing possible local vimrc file
+if filereadable(expand('%:p:h').'/.vimrc.local')
+    :source %:p:h/.vimrc.local
+endif

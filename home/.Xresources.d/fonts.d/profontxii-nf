@@ -1,0 +1,6 @@
+!# vi:filetype=xdefaults
+
+*.font:             xft:ProFontIIx Nerd Font Mono:style=Book:size=14
+*.boldFont:         xft:ProFontIIx Nerd Font Mono:style=Book:size=14
+*.italicFont:       xft:ProFontIIx Nerd Font Mono:style=Book:size=14
+*.boldItalicFont:   xft:ProFontIIx Nerd Font Mono:style=Book:size=14

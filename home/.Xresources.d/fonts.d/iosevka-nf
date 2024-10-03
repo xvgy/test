@@ -1,0 +1,6 @@
+!# vi:filetype=xdefaults
+
+*.font:             xft:IosevkaTerm Nerd Font Mono:style=Light:size=12
+*.boldFont:         xft:IosevkaTerm Nerd Font Mono:style=Bold:size=12
+*.italicFont:       xft:IosevkaTerm Nerd Font Mono:style=Italic:size=12
+*.boldItalicFont:   xft:IosevkaTerm Nerd Font Mono:style=Bold Oblique,Regular:size=12

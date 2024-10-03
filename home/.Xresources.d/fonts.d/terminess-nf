@@ -1,0 +1,6 @@
+!# vi:filetype=xdefaults
+
+*.font:             xft:TerminessTTF Nerd Font Mono:style=Medium:size=20
+*.boldFont:         xft:TerminessTTF Nerd Font Mono:style=Bold:size=20
+*.italicFont:       xft:TerminessTTF Nerd Font Mono:style=Italic:size=20
+*.boldItalicFont:   xft:TerminessTTF Nerd Font Mono:style=Bold Italic:size=20

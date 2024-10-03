@@ -1,0 +1,6 @@
+!# vi:filetype=xdefaults
+
+*.font:             xft:ShureTechMono Nerd Font Mono:style=Regular:size=16
+*.boldFont:         xft:ShureTechMono Nerd Font Mono:style=Regular:size=16
+*.italicFont:       xft:ShureTechMono Nerd Font Mono:style=Regular:size=16
+*.boldItalicFont:   xft:ShureTechMono Nerd Font Mono:style=Regular:size=16

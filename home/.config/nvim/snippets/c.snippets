@@ -1,0 +1,75 @@
+snippet epiheader
+	/*
+	** EPITECH PROJECT, `system("date +%Y -d 'last year'")`
+	** `expand("%:t")`
+	** File description:
+	** ${1:file_description}
+	*/
+
+snippet hheader
+	/*
+	** EPITECH PROJECT, `system("date +%Y -d 'last year'")`
+	** `expand("%:t")`
+	** File description:
+	** Header file for ${1}
+	*/
+
+	#ifndef $2
+	# define ${2:HEADER_NAME}
+
+	${3}
+
+	#endif /* $2 */
+
+snippet myheader
+	/*
+	** My project, `system("date +%Y")`
+	** `expand("%:t")`
+	** File description:
+	** ${1:file_description}
+	*/
+
+snippet myhheader
+	/*
+	** My project, `system("date +%Y")`
+	** `expand("%:t")`
+	** File description:
+	** Header file for ${1}
+	*/
+
+	#ifndef $2
+	# define ${2:HEADER_NAME}
+
+	${3}
+
+	#endif /* $2 */
+
+snippet hdeb
+	#ifdef DEBUG
+	${1}
+	#endif
+
+snippet critest
+	Test(${1:#function}, ${2:#test_name})
+	{
+		$3
+	}
+
+snippet fun
+	${1:type}	${2:name}(${3:args})
+	{
+		${4}
+	}
+
+snippet	/
+	/*			${1:comment}*/
+
+snippet /start:
+	/* ************************************************
+	 *	${1:comment_line} -- START
+	 * **********************************************************/
+
+snippet /end:
+	/* **********************************************************
+	 *								END -- ${1:comment_line}
+	 * ************************************************/

@@ -1,0 +1,6 @@
+!# vi:filetype=xdefaults
+
+*.font:             xft:VictorMono Nerd Font Mono:style=Regular:size=16
+*.boldFont:         xft:VictorMono Nerd Font Mono:style=Bold:size=16
+*.italicFont:       xft:VictorMono Nerd Font Mono:style=Italic:size=16
+*.boldItalicFont:   xft:VictorMono Nerd Font Mono:style=SemiBold,Oblique,Italic:size=16

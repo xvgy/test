@@ -1,0 +1,12 @@
+
+! 1) Load a colorscheme
+#include ".Xresources.d/colors.d/defaults"
+
+! 2) Source color variables
+#include ".Xresources.d/colors_apply"
+
+! 3) Source term file
+#include ".Xresources.d/urxvt"
+
+! 4) Apply font
+#include ".Xresources.d/fonts.d/iosevka-nf"

@@ -1,0 +1,23 @@
+"========================================================
+"===>  GVIMrc
+"========================================================
+
+" Disable that annoying visual bell
+set vb
+set t_vb=
+noremap <expr> k ((line('.')==1)?'':'k')
+noremap <expr> j ((line('.')==line('$'))?'':'j')
+
+" Remove menubars
+set go-=m
+set go-=T
+
+" Font
+" Must put different syntax for Windows and UNIX
+if has('win32')
+    set guifont=Hack:h10
+else
+    set guifont=Hack 12
+endif
+
+source ~/.vim/vimrc

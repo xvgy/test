@@ -1,0 +1,21 @@
+[alias]
+    cm =  "!f() { git commit -m \"$1\"; }; f"
+    cma = "!f() { git commit --amend; }; f"
+    rmc = rm -r --cached
+    fpush = push -f
+    ck = checkout
+    clon = clone --depth=1
+    adiff = diff --cached
+    s = status
+    lst = "!f() { git ls-tree -r --name-only $1; }; f"
+    sapply = "!f() { git stash apply stash^{/$*}; }; f"
+    slist = "!f() { git stash list stash^{/$*}; }; f"
+    sshow = "!f() { git stash show stash^{/$*} -p; }; f"
+    svnck = "!f() { echo $1 | sed -En 's:/tree/[a-zA-Z0-9_-]+/:/trunk/:p'; }; f"
+    partclone = "!f() { git svnck $1 && svn checkout $(git svnck $1) || echo -e 'Failed to get trunk'; }; f"
+    uns = reset -- 
+    unsa = reset --soft HEAD^
+    plog = "!git plog2"
+    plog1 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)'
+    plog2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(auto)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)'
+    plog3 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset) %C(bold cyan)(committed: %cD)%C(reset) %C(auto)%d%C(reset)%n''          %C(white)%s%C(reset)%n''          %C(dim white)- %an <%ae> %C(reset) %C(dim white)(committer: %cn <%ce>)%C(reset)'
