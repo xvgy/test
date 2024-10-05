@@ -1,5 +1,4 @@
 home/.config/nvim/colors
 home/.config/nvim/autoload
-confnixes/*
-confnixes/**
+ignore/**/*
 *.md

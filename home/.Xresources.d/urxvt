@@ -12,7 +12,7 @@ URxvt.cursorBlink:      1
 URxvt.cursorUnderline:  false
 
 URxvt.geometry:         92x32
-URxvt.internalBorder:   32
+URxvt.internalBorder:   16
 
 URxvt.scrollBar:        false
 URxvt.scrollBar_right:  false
@@ -20,8 +20,9 @@ Xcursor.size:           32
 URxvt.iso14755:         false
 URxvt.reverseVideo:     true
 
-!URxvt*inheritPixmap:   true
-!URxvt.perl-lib:         /run/current-system/sw/lib/urxvt/perl
+URxvt*inheritPixmap:    true
+URxvt*transparent:      true
+URxvt*shading:          8
 URxvt.perl-lib:         /tmp/lib/urxvt/perl
 URxvt.saveline:        4095
 

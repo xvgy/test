@@ -60,7 +60,6 @@
         i3blocks
         rxvt-unicode-unwrapped
         xcwd
-        picom
         perl
         feh
       ];  

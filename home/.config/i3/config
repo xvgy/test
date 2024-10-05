@@ -9,6 +9,11 @@
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
+# Disable VMP mouse
+exec --no-startup-id xinput disable 7
+exec --no-startup-id xinput disable 9
+exec --no-startup-id xinput disable 10
+
 set $mod Mod1
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -108,12 +113,12 @@ bindsym $mod+agrave workspace 		$wksp10
 
 # workspace aliases
 
-set $wksp-tasks 	$wksp1
-set $wksp-home		$wksp2
+set $wksp-a1 	$wksp1
+set $wksp-a2		$wksp2
 set $wksp-term		$wksp3
-set $wksp-vim		$wksp4
+set $wksp-a5		$wksp4
 set $wksp-browse 	$wksp5
-set $wksp-find 		$wksp6
+set $wksp-a6 		$wksp6
 set $wksp-a7    	$wksp7
 set $wksp-a8    	$wksp8
 set $wksp-a9    	$wksp9
@@ -121,16 +126,16 @@ set $wksp-a10    	$wksp10
 
 # workspace icons
 
-set $wksp1    "1 "
-set $wksp2    "2 "
+set $wksp1    "1 "
+set $wksp2    "2 "
 set $wksp3    "3 "
 set $wksp4    "4 "
 set $wksp5    "5 "
-set $wksp6    "6 "
-set $wksp7    "7  "
-set $wksp8    "8  "
-set $wksp9    "9  "
-set $wksp10   "10 "
+set $wksp6    "6 "
+set $wksp7    "7 "
+set $wksp8    "8 "
+set $wksp9    "9 "
+set $wksp10   "10"
 
 
 # bind to back and forth workspaces
@@ -162,42 +167,27 @@ bindsym $mod+Shift+p move workspace to output right
 #============ WINDOW PARAMETERS ===============#
 ################################################
 
-#Note: les exceptions doivent être en premier
+#Note: Exceptions must be 1st
 
 #Workspace placement
 
 # $wksp1
-assign [class="Trilium Notes"] $wksp1
 # $wksp2
-assign [class="Thunar"] $wksp2
-assign [class="Thunderbird"] $wksp2
 # $wksp3
 # $wksp4
 # $wksp5
 assign [instance="Navigator"] $wksp5
-assign [class="Brave-browser"] $wksp5
 # $wksp6
-assign [class="discord"] $wksp6
 # $wksp7
 # $wksp8
-assign [class="Emacs"] $wksp8
 # $wksp9
 # $wksp10
 
 for_window [class="[.]*"]               floating enable
-for_window [class="Thunar"]             floating disable
 for_window [class="URxvt"]              floating disable
-for_window [class="Code"]               floating disable
-for_window [class="nvim-qt"]            floating disable
-for_window [class="Evince"]             floating disable
 for_window [instance="Navigator"]       floating disable
-for_window [class="Thunderbird"]        floating disable
-for_window [class="Trilium Notes"]      floating disable
-for_window [class="discord"]            floating disable
 for_window [class="Xmessage"]           floating enable, move absolute position center, focus, sticky enable
-for_window [class="VirtualBox Machine"] floating disable
 for_window [class="libreoffice"]        floating disable
-for_window [class="Emacs"]              floating disable
 
 for_window [window_role="pop-up"]       floating enable
 for_window [window_role="bubble"]       floating enable 
@@ -263,7 +253,6 @@ set $mode_system [SYSTEM]: (l) logout | (s) suspend | (r) reboot | (Shift+S) shu
 mode "$mode_system" {
     bindsym l exec --no-startup-id ~/.config/i3/scripts/i3exit logout, mode "default"
     bindsym s exec --no-startup-id ~/.config/i3/scripts/i3exit suspend, mode "default"
-    #bindsym h exec --no-startup-id ~/.config/i3/scripts/i3exit hibernate, mode "default"
     bindsym r exec --no-startup-id ~/.config/i3/scripts/i3exit reboot, mode "default"
     bindsym Shift+s exec --no-startup-id ~/.config/i3/scripts/i3exit shutdown, mode "default"
 
@@ -273,47 +262,8 @@ mode "$mode_system" {
 }
 bindsym $mod+Shift+Escape mode "$mode_system"
 
-# Multimedia buttons for laptop
-#https://faq.i3wm.org/question/3747/enabling-multimedia-keys.1.html
-# Pulse Audio controls
-
-#bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
-#bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
-#bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
-
-exec_always amixer -q -D pulse sset Master 50% && pkill -RTMIN+1 i3blocks
-bindsym XF86AudioRaiseVolume exec amixer -q -D pulse sset Master 5%+ && pkill -RTMIN+1 i3blocks 
-bindsym XF86AudioLowerVolume exec amixer -q -D pulse sset Master 5%- && pkill -RTMIN+1 i3blocks
-bindsym XF86AudioMute exec amixer -q -D pulse sset Master toggle && pkill -RTMIN+1 i3blocks
-
-# Sreen brightness controls
-bindsym XF86MonBrightnessUp exec light -A 2 # increase screen brightness
-bindsym XF86MonBrightnessDown exec light -U 2 # decrease screen brightness
-bindsym Shift+XF86MonBrightnessUp exec light -A 10 # increase screen brightness
-bindsym Shift+XF86MonBrightnessDown exec light -U 10 # decrease screen brightness
-
-# Touchpad controls
-exec_always ~/.config/i3/scripts/toggle_tp.sh once
-exec_always syndaemon -i 0.60 -m 0.10 -d -k
-bindsym $mod+Insert exec ~/.config/i3/scripts/toggle_tp.sh # toggle touchpad
-
-# Media player controls
-bindsym XF86AudioPlay exec playerctl play
-bindsym XF86AudioPause exec playerctl pause
-bindsym XF86AudioNext exec playerctl next
-bindsym XF86AudioPrev exec playerctl previous
-
-# Print controls
-exec_always "touch /tmp/.screencaplock"
-bindsym --release Print exec "$HOME/.config/i3/scripts/screencap.sh screen"
-bindsym --release Shift+Print exec "$HOME/.config/i3/scripts/screencap.sh select"
-bindsym --release Ctrl+Shift+Print exec "$HOME/.config/i3/scripts/screencap.sh clipboard"
-bindsym --release Mod4+Print exec "source $HOME/.config/i3/scripts/screencap.sh && screencap_source_lock"
-
-exec_always ~/.config/i3/scripts/picom_start.sh
 exec_always --no-startup-id ~/.config/feh/themes/.fehrc
 exec_always --no-startup-id urxvtd -q -o -f
-
 
 set $bd-color			    #AE77C4
 set $inactive-bd-color		#88B2D3
@@ -333,8 +283,6 @@ set $inactive-ind-color     #54657E
 
 bindsym $mod+p exec --no-startup-id rofi -run-list-command "rofi_aliases" -run-command "bash -i -c '{cmd}'" -show run -display-run ":: "
 
-bindsym $mod+a exec tognav
-
 #window colors			    border			    background			    text			        indicator               child_border
 #
 client.focused			    $bg-color		    $bg-color		        $text-color		        $ind-color              $bd-color
@@ -349,7 +297,7 @@ new_window pixel 1
 # finds out, if available)
 
 bar {
-    status_command i3blocks -c ~/.config/i3/i3blocks/config
+    status_command i3blocks -c ~/.config/i3/blocks/config
     tray_output primary
     font pango:tewi 8
     position bottom
@@ -370,19 +318,6 @@ bar {
 bindsym $mod+shift+x exec --no-startup-id i3lock -u -i $HOME/Wallpaper.png
 
 # Customisation des gaps
-gaps inner 20
-gaps outer 20
-#smart_gaps inverse_outer
-smart_gaps on
-#smart_borders no_gaps
-
-# terminals
-workspace 2 gaps outer 20
-workspace 2 gaps inner 10
-
-#Emacs
-workspace 4 gaps outer 10
-workspace 4 gaps inner 4
-
-#TODOs
-workspace 6 gaps outer 70
+gaps inner 8
+gaps outer 4
+smart_gaps off
