@@ -1,0 +1,11 @@
+#!/usr/bin/env -S bash --init-file
+
+source ${HOME}/.bashrc
+cd ${OLDPWD}
+export POWERLINE_PROMPT_CHAR="${POWERLINE_PROMPT_CHAR}[nvchad]${POWERLINE_PROMPT_CHAR}"
+
+echo
+echo
+echo "Welcome to the NVChad IDE Environment Shell!"
+alias nvim="NVIM_APPNAME=nvchad nvim"
+unalias nvcdsh

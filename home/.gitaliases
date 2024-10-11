@@ -1,8 +1,10 @@
 [alias]
     cm =  "!f() { git commit -m \"$1\"; }; f"
     cma = "!f() { git commit --amend; }; f"
+    d = "!f() { git diff HEAD$1; }; f"
     rmc = rm -r --cached
-    fpush = push -f
+    pfl = push --force-with-lease
+    au = add -u
     ck = checkout
     clon = clone --depth=1
     adiff = diff --cached

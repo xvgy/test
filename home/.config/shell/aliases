@@ -2,9 +2,7 @@ alias xup="xrdb -I$HOME ~/.Xresources"
 alias chrome='chromium-browser'
 alias gnvim='nvim-qt 2>&1 >/dev/null &'
 alias e='nvim'
-
-alias dls='xo ~/Downloads'
-alias snaps="xo ~/snaps"
+alias nvcdsh="__nix_shell_safe ${HOME}/.config/nxsh/nvchad"
 
 alias ..='cd ..'
 alias ...='cd ../..'

@@ -1,4 +1,6 @@
+.VERSION
 home/.config/nvim/colors
 home/.config/nvim/autoload
 ignore/**/*
 *.md
+home/.config/nvchad/**.json

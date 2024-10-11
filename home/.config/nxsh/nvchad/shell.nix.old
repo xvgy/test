@@ -1,0 +1,13 @@
+# shell.nix
+with import <nixpkgs> {};
+
+stdenv.mkDerivation {
+  name = "nvchad"; # Probably put a more meaningful name here
+  buildInputs = 
+    # Prereqs
+    ([ gcc python3 wget unzip ripgrep ]) ++
+    # C IDE
+    ([ clang clang-tools cpplint pkg-config zlib ]) ++
+    # Lua IDE
+    ([ luarocks luajitPackages.luacheck stylua lua-language-server ]);
+}

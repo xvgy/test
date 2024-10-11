@@ -20,6 +20,19 @@ __get_alias()
     cat ~/.customrc.d/aliases.d/*.bash
 }
 
+__nix_shell_safe()
+{
+    local shell_dir="${1}"
+
+	if [ $SHLVL -gt 1 ]; then
+		echo "Already in a sub-shell (probably nix)"
+		return 1
+	fi
+    pushd ${shell_dir} >/dev/null 2>&1
+	nix-shell $@
+    popd >/dev/null 2>&1
+}
+
 #__ccov()
 #{
 #    mkdir -p ./lcov

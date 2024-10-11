@@ -5,6 +5,7 @@ export LC_ALL=en_GB.UTF-8
 export XDG_CONFIG_HOME="${HOME}/.config"
 export VISUAL=nvim
 export EDITOR=${VISUAL}
+export HISTIGNORE="fg*"
 
 # Path to your oh-my-bash installation.
 export OSH=~/.oh-my-bash
